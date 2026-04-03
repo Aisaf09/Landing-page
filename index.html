@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="WebCraft Studio — Creem webs d'alt rendiment per a empreses que volen créixer en línia." />
+  <title>WebCraft Studio — Webs que ganan</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,300&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ══ CUSTOM CURSOR (desktop) ════════════════════════ -->
+  <div id="cursor"      aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ══ LOADER ════════════════════════════════════════ -->
+  <div id="loader" role="status" aria-label="Carregant">
+    <div class="ld-word">
+      <span>Web</span><span>Craft</span><span>.</span>
+    </div>
+    <div class="ld-bar">
+      <div class="ld-fill"></div>
+    </div>
+  </div>
+
+  <!-- ══ MOBILE DRAWER ══════════════════════════════════ -->
+  <nav class="mob-drawer" id="mobDrawer" aria-label="Menú mòbil">
+    <a href="#serveis"   onclick="closeDrawer()">Servicios</a>
+    <a href="#preus"     onclick="closeDrawer()">Precios</a>
+    <a href="#portfolio" onclick="closeDrawer()">Portfolio</a>
+    <a href="#nosaltres" onclick="closeDrawer()">Nosotros</a>
+    <a href="#contacte"  onclick="closeDrawer()">Contacto</a>
+  </nav>
+
+  <!-- ══ NAVBAR ═════════════════════════════════════════ -->
+  <header id="nav" role="banner">
+    <div class="wrap nav-inner">
+      <!-- Logo -->
+      <a href="#" class="nav-logo" aria-label="WebCraft Studio — inici">
+        WebCraft<em>Studio</em><span class="dot" aria-hidden="true"></span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#serveis">Servicios</a></li>
+        <li><a href="#preus">Precios</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#nosaltres">Nosotros</a></li>
+        <li><a href="#contacte">Contacto</a></li>
+      </ul>
+
+      <!-- CTA + hamburger -->
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-blue btn-blue-sm">
+          Habla con un experto
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Obrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══ HERO ══════════════════════════════════════════ -->
+    <section id="hero" aria-label="Introducció">
+      <!-- Background layers -->
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-mesh-1" aria-hidden="true"></div>
+      <div class="hero-mesh-2" aria-hidden="true"></div>
+      <div class="hero-mesh-3" aria-hidden="true"></div>
+      <div class="hero-grain"  aria-hidden="true"></div>
+      <div class="hero-grid"   aria-hidden="true"></div>
+
+      <!-- Main content -->
+      <div class="wrap hero-content">
+        <div class="hero-pill">
+          <div class="hero-pill-dot" aria-hidden="true"></div>
+          Disponible para nuevos proyectos · 2026
+        </div>
+
+        <h1 class="hero-h1">
+          Creamos webs<br>
+          que <span class="line-italic">venden</span><br>
+          <span class="line-outline">para ti</span>
+        </h1>
+
+        <p class="hero-sub body-lg">
+          Disseño prémium, velocidad i posicionamiento SEO.<br>
+          Tu web puede ser la clave de tu negócio
+        </p>
+
+        <div class="hero-btns">
+          <a href="#preus" class="btn btn-blue">
+            Ver planes i precios
+            <span class="btn-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+          <a href="#portfolio" class="btn btn-rim">Ver portfolio</a>
+        </div>
+      </div>
+
+      <!-- Floating stat cards (desktop) -->
+      <div class="hero-floaters" aria-hidden="true">
+        <div class="floater">
+          <div class="floater-num">+80<span>%</span></div>
+          <div class="floater-label">Más conversaciones</div>
+          <div class="floater-bar"><div class="floater-bar-fill" style="width:80%"></div></div>
+        </div>
+        <div class="floater">
+          <div class="floater-num">50<span>+</span></div>
+          <div class="floater-label">Proyectos echos</div>
+          <div class="floater-bar"><div class="floater-bar-fill" style="width:100%"></div></div>
+        </div>
+        <div class="floater">
+          <div class="floater-num">99<span>%</span></div>
+          <div class="floater-label">Satisfacción del cliente</div>
+          <div class="floater-bar"><div class="floater-bar-fill" style="width:98%"></div></div>
+        </div>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+        <span class="scroll-text">Scroll</span>
+      </div>
+    </section>
+
+    <!-- ══ MARQUEE ════════════════════════════════════════ -->
+    <div class="marquee-wrap" aria-hidden="true">
+      <div class="marquee-track">
+        <!-- Items (duplicated for seamless loop) -->
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Disseño prémium</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Carga &lt;1s</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>SEO Avanzado</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>100% Responsive</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Soporte Dedicado</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Entrega en 15 dies</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Conversiones +80%</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Codigo Limpio</div>
+
+        <!-- Duplicate set -->
+        <<div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Disseño prémium</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Carga &lt;1s</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>SEO Avanzado</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>100% Responsive</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Soporte Dedicado</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Entrega en 15 dies</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Conversiones +80%</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Codigo Limpio</div>
+      </div>
+    </div>
+
+    <!-- ══ SERVICES ═══════════════════════════════════════ -->
+    <section id="serveis" class="sec" aria-label="Serveis">
+      <div class="wrap">
+        <div class="rv">
+          <div class="eyebrow">Servicios</div>
+          <h2 class="heading-lg">Todo lo que necessitas<br>para crecer en línea</h2>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="services-layout">
+
+          <!-- Landing Pages -->
+          <article class="srv-card rv d1">
+            <div class="srv-num" aria-hidden="true">01</div>
+            <div class="srv-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <path d="M8 21h8M12 17v4"/>
+              </svg>
+            </div>
+            <h3 class="srv-name">Landing pages</h3>
+            <p class="srv-desc">Páginas diseñadas para convertir visitas en clientes. Disseño de alto impacto i CTAs estratègicos que generan resultados reales.</p>
+            <div class="srv-cta">
+              Des de 497€
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </article>
+
+          <!-- Tiendas Online -->
+          <article class="srv-card rv d2">
+            <div class="srv-num" aria-hidden="true">02</div>
+            <div class="srv-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 01-8 0"/>
+              </svg>
+            </div>
+            <h3 class="srv-name">Tiendas on-line</h3>
+            <p class="srv-desc">Comercio electrónico de alto rendimiento con pasarela de pago integrada, gestión de inventario i experiéncia de compra optimitzada para maximizar la facturación.</p>
+            <div class="srv-cta">
+              Des de 1.497€
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </article>
+
+          <!-- Webs a Medida -->
+          <article class="srv-card rv d3">
+            <div class="srv-num" aria-hidden="true">03</div>
+            <div class="srv-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <h3 class="srv-name">Webs a medida</h3>
+            <p class="srv-desc">Desenvolupamiento 100% personalizado. Sin plantillas, sin límites. Arquitectura escalable, codigo límpio y funcionalidades a tu medida.</p>
+            <div class="srv-cta">
+              Des de 2.997€
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PRICING ════════════════════════════════════════ -->
+    <section id="preus" class="sec" aria-label="Preus">
+      <div class="wrap">
+        <div class="pricing-header rv">
+          <div class="eyebrow">Precios</div>
+          <h2 class="heading-lg">Planes claros,<br>sin sorpresas</h2>
+          <p class="body-lg">Escoje el plan que más se adapta a ti. Todos incluyen disseño professional i soporte post-venta.</p>
+        </div>
+
+        <div class="pricing-grid">
+
+          <!-- Bàsic -->
+          <article class="price-card rv d1">
+            <h3 class="plan-name">Básico</h3>
+            <p class="plan-tagline">Para empezar con buen pié</p>
+            <div class="plan-price-row">
+              <div>
+                <div class="plan-from">Des de</div>
+                <div class="plan-amount">497€</div>
+              </div>
+              <div class="plan-per">/ proyecto</div>
+            </div>
+            <ul class="plan-feats" role="list">
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Pàgina d'aterratge d'1 pàgina</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Disseny responsive</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Formulari de contacte</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>SEO bàsic</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Lliurament en 7 dies</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>1 ronda de revisions</li>
+            </ul>
+            <a href="contact.html" class="btn btn-rim">Empieza ahora</a>
+          </article>
+
+          <!-- Professional (featured) -->
+          <article class="price-card hot rv d2">
+            <div class="plan-chip">
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" aria-hidden="true"><circle cx="4" cy="4" r="4"/></svg>
+              Més popular
+            </div>
+            <h3 class="plan-name">Professional</h3>
+            <p class="plan-tagline">La elección de empresas en crecimiento</p>
+            <div class="plan-price-row">
+              <div>
+                <div class="plan-from">Des de</div>
+                <div class="plan-amount" style="color:var(--azure-lt)">1.497€</div>
+              </div>
+              <div class="plan-per">/ proyecto</div>
+            </div>
+            <ul class="plan-feats" role="list">
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Web multisecció (fins a 8 pàgines)</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Disseny premium a mida</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Animacions i micro-interaccions</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>SEO avançat + Analytics</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Integració WhatsApp / CRM</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Lliurament en 15 dies</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>3 rondes de revisions</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Suport 3 mesos inclòs</li>
+            </ul>
+            <a href="contact.html" class="btn btn-blue">Contratar plan</a>
+          </article>
+
+          <!-- Premium -->
+          <article class="price-card rv d3">
+            <h3 class="plan-name">Prémium</h3>
+            <p class="plan-tagline">Para marcas que quieren liderar</p>
+            <div class="plan-price-row">
+              <div>
+                <div class="plan-from">Des de</div>
+                <div class="plan-amount">2.997€</div>
+              </div>
+              <div class="plan-per">/ proyecto</div>
+            </div>
+            <ul class="plan-feats" role="list">
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Desenvolupamiento 100% a medida</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Comercio electrónico o panel admin</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Integraciones avanzadas</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Optimitzación de rendimiénto</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Revisiones</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Soporte</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Consultoria digital incluída</li>
+            </ul>
+            <a href="contact.html" class="btn btn-rim">Solicitar presupuésto</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PORTFOLIO ══════════════════════════════════════ -->
+    <section id="portfolio" class="sec" aria-label="Portfolio">
+      <div class="wrap">
+        <div class="port-header rv">
+          <div class="eyebrow">Portfolio</div>
+          <h2 class="heading-lg">Proyectos que<br>hablan por si solos</h2>
+          <p class="body-lg">Cada proyecto es una solución única diseñada para los objetivos específicos de cada cliente.</p>
+        </div>
+
+        <div class="port-grid rv">
+
+          <article class="port-item p1">
+            <div class="port-screen">
+              <div class="port-bar" aria-hidden="true">
+                <div class="pbar-dot" style="background:#ff5f57"></div>
+                <div class="pbar-dot" style="background:#febc2e"></div>
+                <div class="pbar-dot" style="background:#28c840"></div>
+              </div>
+              <div class="port-body">
+                <div class="port-mock-text">Nexus Agency</div>
+              </div>
+            </div>
+            <div class="port-overlay" aria-hidden="true">
+              <div class="port-proj-name">Nexus Agency</div>
+              <div class="port-proj-tag">Agència Digital</div>
+            </div>
+            <div class="port-info">
+              <div>
+                <div class="port-info-name">Nexus Agency</div>
+                <div class="port-info-cat">Pàgina d'aterratge · Agència Digital</div>
+              </div>
+              <div class="port-link" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </article>
+
+          <article class="port-item p2">
+            <div class="port-screen">
+              <div class="port-bar" aria-hidden="true">
+                <div class="pbar-dot" style="background:#ff5f57"></div>
+                <div class="pbar-dot" style="background:#febc2e"></div>
+                <div class="pbar-dot" style="background:#28c840"></div>
+              </div>
+              <div class="port-body">
+                <div class="port-mock-text">Éclat Mode</div>
+              </div>
+            </div>
+            <div class="port-overlay" aria-hidden="true">
+              <div class="port-proj-name">Éclat Mode</div>
+              <div class="port-proj-tag">Comerç Electrònic Moda</div>
+            </div>
+            <div class="port-info">
+              <div>
+                <div class="port-info-name">Éclat Mode</div>
+                <div class="port-info-cat">E-Commerce · Moda</div>
+              </div>
+              <div class="port-link" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </article>
+
+          <article class="port-item p3">
+            <div class="port-screen">
+              <div class="port-bar" aria-hidden="true">
+                <div class="pbar-dot" style="background:#ff5f57"></div>
+                <div class="pbar-dot" style="background:#febc2e"></div>
+                <div class="pbar-dot" style="background:#28c840"></div>
+              </div>
+              <div class="port-body">
+                <div class="port-mock-text">Flowmetric</div>
+              </div>
+            </div>
+            <div class="port-overlay" aria-hidden="true">
+              <div class="port-proj-name">Flowmetric</div>
+              <div class="port-proj-tag">SaaS · Tauler de control</div>
+            </div>
+            <div class="port-info">
+              <div>
+                <div class="port-info-name">Flowmetric</div>
+                <div class="port-info-cat">SaaS · Tauler de control</div>
+              </div>
+              <div class="port-link" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </article>
+
+          <article class="port-item p4">
+            <div class="port-screen">
+              <div class="port-bar" aria-hidden="true">
+                <div class="pbar-dot" style="background:#ff5f57"></div>
+                <div class="pbar-dot" style="background:#febc2e"></div>
+                <div class="pbar-dot" style="background:#28c840"></div>
+              </div>
+              <div class="port-body">
+                <div class="port-mock-text">Maison Lorette</div>
+              </div>
+            </div>
+            <div class="port-overlay" aria-hidden="true">
+              <div class="port-proj-name">Maison Lorette</div>
+              <div class="port-proj-tag">Restauració Premium</div>
+            </div>
+            <div class="port-info">
+              <div>
+                <div class="port-info-name">Maison Lorette</div>
+                <div class="port-info-cat">Restauració · Reserves en línia</div>
+              </div>
+              <div class="port-link" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ WHY US ══════════════════════════════════════════ -->
+    <section id="nosaltres" class="sec" aria-label="Per què nosaltres">
+      <div class="wrap">
+        <div class="why-layout">
+
+          <!-- Metrics panel -->
+          <div class="rv-left">
+            <div class="why-big-metric" id="whyMetrics">
+              <div class="wm-row">
+                <div>
+                  <div class="wm-label">Aumento medio en conversiones</div>
+                  <div class="wm-bar-wrap"><div class="wm-bar-fill" data-w="80"></div></div>
+                </div>
+                <div class="wm-value">+80%</div>
+              </div>
+              <div class="wm-row">
+                <div>
+                  <div class="wm-label">Satisfacción del cliente</div>
+                  <div class="wm-bar-wrap"><div class="wm-bar-fill" data-w="98"></div></div>
+                </div>
+                <div class="wm-value">99%</div>
+              </div>
+              <div class="wm-row">
+                <div>
+                  <div class="wm-label">Projectos entregados</div>
+                  <div class="wm-bar-wrap"><div class="wm-bar-fill" data-w="100"></div></div>
+                </div>
+                <div class="wm-value">50+</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Benefits list -->
+          <div>
+            <div class="rv-right">
+              <div class="eyebrow">Por qué nosotros</div>
+              <h2 class="heading-lg">Construímos resultados<br>no solo webs</h2>
+            </div>
+
+            <div class="why-cards">
+
+              <div class="why-card rv d1">
+                <div class="why-card-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <div>
+                  <div class="why-card-title">Disseño moderno y único</div>
+                  <div class="why-card-text">Creamos identidades visuales memorables. Sin plantillas — tu web será única en el mercado.</div>
+                </div>
+              </div>
+
+              <div class="why-card rv d2">
+                <div class="why-card-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <div>
+                  <div class="why-card-title">Rápido y optimizado</div>
+                  <div class="why-card-text">Código limpio, imágenes optimizadas y CDN global. Tu web carga en menos de 1 segundo.</div>
+                </div>
+              </div>
+
+              <div class="why-card rv d3">
+                <div class="why-card-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div>
+                  <div class="why-card-title">Enfocado en conversiones</div>
+                  <div class="why-card-text">Cada decisión de diseño está apoyada por datos. Diseñamos para que tus visitas compren.</div>
+                </div>
+              </div>
+
+              <div class="why-card rv d4">
+                <div class="why-card-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                </div>
+                <div>
+                  <div class="why-card-title">Soporte personalizado</div>
+                  <div class="why-card-text">Tienes un interlocutor directo que conoce tu proyecto. Soporte real, sin botes ni tiques.</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TESTIMONIALS ═══════════════════════════════════ -->
+    <section id="testimonis" class="sec" aria-label="Testimonis">
+      <div class="wrap">
+        <div class="testi-header rv">
+          <div class="eyebrow">Testimonios</div>
+          <h2 class="heading-lg">Lo que dicen<br>nuestros clientes</h2>
+        </div>
+
+        <div class="testi-grid">
+
+          <article class="testi-card rv d1">
+            <div class="testi-quote" aria-hidden="true">"</div>
+            <div class="testi-stars" aria-label="5 estrelles">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote class="testi-text">Desde que lanzamos la nueva web, nuestras consultas online se triplicaron. WebCraft es lo mejor</blockquote>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:linear-gradient(135deg,#2563eb,#7c3aed)" aria-hidden="true">MR</div>
+              <div>
+                <div class="testi-name">Marta Rodríguez</div>
+                <div class="testi-role">CEO · Clínica Estètica Lumière</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testi-card rv d2">
+            <div class="testi-quote" aria-hidden="true">"</div>
+            <div class="testi-stars" aria-label="5 estrelles">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote class="testi-text">Con WebCraft he podido tener mi pagina lista en 15 dias y muy professional.</blockquote>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:linear-gradient(135deg,#059669,#065f46)" aria-hidden="true">JM</div>
+              <div>
+                <div class="testi-name">Joan Mas</div>
+                <div class="testi-role">Fundador · EcoTech Solutions</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testi-card rv d3">
+            <div class="testi-quote" aria-hidden="true">"</div>
+            <div class="testi-stars" aria-label="5 estrelles">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote class="testi-text">Mi tienda online pasó de no tener visitas a tener miles en el primer mes.</blockquote>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:linear-gradient(135deg,#dc2626,#991b1b)" aria-hidden="true">LP</div>
+              <div>
+                <div class="testi-name">Laura Pons</div>
+                <div class="testi-role">Propietário · Atelier Pons</div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PROCESS ════════════════════════════════════════ -->
+    <section id="proces" class="sec" aria-label="Procés de treball">
+      <div class="wrap">
+        <div class="proc-header rv">
+          <div class="eyebrow">Procés</div>
+          <h2 class="heading-lg">De la idea a la web<br>en 4 pasos</h2>
+          <p class="body-lg">Un proceso claro y transparente — sabes exactamente lo que ocurre en cada momento.</p>
+        </div>
+
+        <ol class="proc-row" role="list">
+
+          <li class="proc-step rv d1">
+            <div class="proc-circle">
+              <div class="proc-num">01</div>
+              <div class="proc-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              </div>
+            </div>
+            <h3 class="proc-title">Contacto</h3>
+            <p class="proc-desc">Hablemos sobre tu proyecto, objetivos y presupuesto. Sin compromiso y sin presión.</p>
+          </li>
+
+          <li class="proc-step rv d2">
+            <div class="proc-circle">
+              <div class="proc-num">02</div>
+              <div class="proc-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4z"/></svg>
+              </div>
+            </div>
+            <h3 class="proc-title">Disseño</h3>
+            <p class="proc-desc">Creamos el diseño en Figma. Lo ves y apruebas antes de escribir ni una línea de código.</p>
+          </li>
+
+          <li class="proc-step rv d3">
+            <div class="proc-circle">
+              <div class="proc-num">03</div>
+              <div class="proc-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+            </div>
+            <h3 class="proc-title">Desenvolupamiénto</h3>
+            <p class="proc-desc">Desarrollamos con las últimas tecnologías. Acceso a previsualización en tiempo real.</p>
+          </li>
+
+          <li class="proc-step rv d4">
+            <div class="proc-circle">
+              <div class="proc-num">04</div>
+              <div class="proc-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+            </div>
+            <h3 class="proc-title">Lliurament</h3>
+            <p class="proc-desc">Web en producción, dominio configurado, SEO activo y formación para que gestiones tu contenido.</p>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!-- ══ CONTACT ════════════════════════════════════════ -->
+    <section id="contacte" class="sec" aria-label="Contacte">
+      <div class="wrap">
+        <div class="contact-layout">
+
+          <!-- Info -->
+          <div>
+            <div class="rv">
+              <div class="eyebrow">Contacto</div>
+              <h2 class="heading-lg">Explicanos<br>sobre tu proyecto</h2>
+              <p class="body-lg">Respondemos en menos de 24h. Primera consulta gratuita sin compromiso.</p>
+            </div>
+
+            <div class="contact-channels rv">
+              <a href="https://wa.me/34642699821" class="channel" target="_blank" rel="noopener noreferrer">
+                <div class="ch-icon" style="background:rgba(37,211,102,.1)">
+                  <svg viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </div>
+                <div>
+                  <div class="ch-label">WhatsApp</div>
+                  <div class="ch-value">+34 642 699 821</div>
+                </div>
+              </a>
+
+              <a href="mailto:hola@webcraftstudio.cat" class="channel">
+                <div class="ch-icon" style="background:var(--azure-ghost)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--azure-lt)" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <div class="ch-label">Correo electrónico</div>
+                  <div class="ch-value">hola@webcraftstudio.cat</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="rv d1">
+            <div class="form-wrap">
+              <div class="form-title">Envianos un mensaje</div>
+              <div class="form-grid" id="cForm">
+                <div class="form-row-2">
+                  <div class="field">
+                    <label for="nom">Nombre</label>
+                    <input type="text" id="nom" name="nom" placeholder="Tu nombre" autocomplete="given-name" />
+                  </div>
+                  <div class="field">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="tu@correo.com" autocomplete="email" />
+                  </div>
+                </div>
+                <div class="form-row-2">
+                  <div class="field">
+                    <label for="servei">Servicio</label>
+                    <select id="servei" name="servei">
+                      <option value="" disabled selected>Selecciona</option>
+                      <option>Landing Page (497€+)</option>
+                      <option>Tienda on-line (1.497€+)</option>
+                      <option>Web a medida (2.997€+)</option>
+                      <option>No lo sé aún</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="pressupost">Pressupuesto</label>
+                    <select id="pressupost" name="pressupost">
+                      <option value="" disabled selected>Rang</option>
+                      <option>Menos de 500€</option>
+                      <option>500€ – 1.500€</option>
+                      <option>1.500€ – 3.000€</option>
+                      <option>Más de 3.000€</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="missatge">Tu proyecto</label>
+                  <textarea id="missatge" name="missatge" placeholder="Explícanos brevemente lo que necesitas y cuáles son tus objetivos..."></textarea>
+                </div>
+                <button type="button" class="btn btn-blue" onclick="sendForm(this)" style="justify-content:center;width:100%;padding:16px">
+                  Enviar mensaje
+                  <span class="btn-arrow" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FINAL CTA ══════════════════════════════════════ -->
+    <section id="final-cta" aria-label="Crida a l'acció final">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="wrap cta-inner rv">
+        <div class="eyebrow" style="justify-content:center">Preparado para crecer?</div>
+        <h2 class="cta-h2">
+          Preparado para una<br>
+          web que <em style="font-style:italic;color:var(--azure-lt)">convierte</em>?
+        </h2>
+        <p class="cta-sub">Únete a más de 50 empresas que confían en WebCraft Studio.<br>Primera consulta gratuita - sin compromiso.</p>
+        <div class="cta-btns">
+          <a href="contact.html" class="btn btn-blue" style="padding:17px 36px;font-size:1rem">
+            Empieza tu proyecto
+            <span class="btn-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+          <a href="#preus" class="btn btn-rim" style="padding:17px 36px;font-size:1rem">Ver planes</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ════════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="wrap">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a href="#" class="nav-logo" aria-label="WebCraft Studio — inici">
+            WebCraft<em>Studio</em><span class="dot" aria-hidden="true"></span>
+          </a>
+          <p>Creamos páginas web de alto rendimiento para empresas que quieren crecer online.</p>
+        </div>
+
+        <nav class="foot-cols" aria-label="Navegació del peu de pàgina">
+          <div class="foot-col">
+            <h4>Serveis</h4>
+            <ul role="list">
+              <li><a href="#serveis">Landing pages</a></li>
+              <li><a href="#serveis">Tiendas on-line</a></li>
+              <li><a href="#serveis">Webs a medida</a></li>
+              <li><a href="#preus">Ver précios</a></li>
+            </ul>
+          </div>
+          <div class="foot-col">
+            <h4>Empresa</h4>
+            <ul role="list">
+              <li><a href="#nosaltres">Nosotros</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#proces">Proceso</a></li>
+              <li><a href="contact.html">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="foot-col">
+            <h4>Legal</h4>
+            <ul role="list">
+              <li><a href="#">Avíso Legal</a></li>
+              <li><a href="#">Privacidad</a></li>
+              <li><a href="#">Cookies</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div class="foot-bottom">
+        <p>© 2026 WebCraft Studio · Todos los derechos reservados</p>
+        <div class="socials">
+          <a href="#" class="soc" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="soc" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="soc" aria-label="X / Twitter">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+
+</body>
+</html>
