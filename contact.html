@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contacta amb WebCraft Studio — Resposem en menys de 24h. Primera consulta gratuïta." />
+  <title>Contacte — WebCraft Studio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,300&display=swap" rel="stylesheet" />
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* ── Contact page specific layout ── */
+    .contact-page {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-hero {
+      position: relative;
+      padding-block: clamp(130px, 18vw, 180px) clamp(60px, 8vw, 100px);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .contact-hero .hero-mesh-1,
+    .contact-hero .hero-mesh-2 {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .contact-hero-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-hero h1 {
+      font-family: var(--f-display);
+      font-size: clamp(2.6rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+
+    .contact-hero p {
+      color: var(--snow-60);
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+      max-width: 520px;
+      margin-inline: auto;
+      line-height: 1.7;
+    }
+
+    /* ── Full-width contact section ── */
+    .contact-full {
+      flex: 1;
+      background: var(--ink-2);
+      padding-block: clamp(48px, 8vw, 96px);
+    }
+
+    .contact-full-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ── Info blocks ── */
+    .info-blocks {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .info-block {
+      background: var(--ink-3);
+      border: 1px solid var(--rim);
+      border-radius: var(--r-card);
+      padding: 28px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      transition: border-color 0.3s, transform 0.4s var(--ease-back);
+    }
+
+    .info-block:hover {
+      border-color: var(--rim-hover);
+      transform: translateX(6px);
+    }
+
+    .info-block-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: var(--azure-soft);
+      border: 1px solid rgba(37,99,235,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .info-block-icon svg { width: 20px; height: 20px; color: var(--azure-lt); }
+
+    .info-block-label {
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--snow-35);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .info-block-value {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--snow);
+      margin-bottom: 4px;
+    }
+
+    .info-block-desc {
+      font-size: 0.83rem;
+      color: var(--snow-60);
+      line-height: 1.5;
+    }
+
+    /* ── FAQ accordion ── */
+    .faq-section { margin-top: 36px; }
+
+    .faq-title {
+      font-family: var(--f-display);
+      font-size: 1.15rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--rim);
+      overflow: hidden;
+    }
+
+    .faq-q {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 0;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--snow);
+      text-align: left;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: var(--f-ui);
+      transition: color 0.2s;
+    }
+
+    .faq-q:hover { color: var(--azure-lt); }
+
+    .faq-chevron {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      transition: transform 0.3s var(--ease-expo);
+      color: var(--snow-60);
+    }
+
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+    .faq-a {
+      font-size: 0.87rem;
+      color: var(--snow-60);
+      line-height: 1.7;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s var(--ease-expo), padding 0.3s;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 300px;
+      padding-bottom: 16px;
+    }
+
+    /* ── Large form ── */
+    .form-wrap-lg {
+      background: var(--ink-3);
+      border: 1px solid var(--rim);
+      border-radius: var(--r-card);
+      padding: clamp(28px, 5vw, 52px);
+    }
+
+    .form-wrap-lg .form-title {
+      font-family: var(--f-display);
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .form-wrap-lg .form-subtitle {
+      font-size: 0.88rem;
+      color: var(--snow-60);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    /* ── Success state ── */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+
+    .form-success.show { display: block; }
+
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(5,150,105,0.15);
+      border: 1px solid rgba(5,150,105,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .success-icon svg { width: 28px; height: 28px; color: #10b981; }
+
+    .success-title {
+      font-family: var(--f-display);
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .success-text {
+      font-size: 0.92rem;
+      color: var(--snow-60);
+      line-height: 1.7;
+      max-width: 360px;
+      margin: 0 auto 28px;
+    }
+
+    /* ── Responsive ── */
+    @media (min-width: 900px) {
+      .contact-full-grid { grid-template-columns: 5fr 7fr; gap: 72px; }
+    }
+  </style>
+</head>
+<body class="contact-page">
+
+  <!-- ══ CUSTOM CURSOR ══ -->
+  <div id="cursor"      aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ══ MOBILE DRAWER ══ -->
+  <nav class="mob-drawer" id="mobDrawer" aria-label="Menú mòbil">
+    <a href="index.html#serveis"   onclick="closeDrawer()">Serveis</a>
+    <a href="index.html#preus"     onclick="closeDrawer()">Preus</a>
+    <a href="index.html#portfolio" onclick="closeDrawer()">Portfolio</a>
+    <a href="index.html#nosaltres" onclick="closeDrawer()">Nosaltres</a>
+    <a href="contact.html"         onclick="closeDrawer()">Contacte</a>
+  </nav>
+
+  <!-- ══ NAVBAR ══ -->
+  <header id="nav" role="banner">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="WebCraft Studio — inici">
+        WebCraft<em>Studio</em><span class="dot" aria-hidden="true"></span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#serveis">Serveis</a></li>
+        <li><a href="index.html#preus">Preus</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="index.html#nosaltres">Nosaltres</a></li>
+        <li><a href="contact.html" style="color:var(--azure-lt)">Contacte</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-blue btn-blue-sm">Parlar amb un expert</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Obrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══ CONTACT HERO ══ -->
+    <section class="contact-hero" aria-label="Capçalera de contacte">
+      <div class="hero-mesh-1" aria-hidden="true"></div>
+      <div class="hero-mesh-2" aria-hidden="true"></div>
+      <div class="hero-grain"  aria-hidden="true"></div>
+      <div class="hero-grid"   aria-hidden="true"></div>
+
+      <div class="wrap contact-hero-inner">
+        <div class="hero-pill">
+          <div class="hero-pill-dot" aria-hidden="true"></div>
+          Responem en menys de 24 hores
+        </div>
+        <h1>
+          Parlem del<br>
+          teu <em style="font-style:italic;color:var(--azure-lt)">projecte</em>
+        </h1>
+        <p>Primera consulta gratuïta sense compromís. Explica'ns els teus objectius i t'expliquem com podem ajudar-te.</p>
+      </div>
+    </section>
+
+    <!-- ══ CONTACT FULL SECTION ══ -->
+    <section class="contact-full" aria-label="Formulari i informació de contacte">
+      <div class="wrap">
+        <div class="contact-full-grid">
+
+          <!-- Left: info + FAQ -->
+          <div>
+            <div class="info-blocks rv">
+
+              <a href="https://wa.me/34600000000" class="info-block" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit">
+                <div class="info-block-icon" style="background:rgba(37,211,102,.1)">
+                  <svg viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </div>
+                <div>
+                  <div class="info-block-label">WhatsApp</div>
+                  <div class="info-block-value">+34 600 000 000</div>
+                  <div class="info-block-desc">Resposta ràpida · De dilluns a divendres, 9h–18h</div>
+                </div>
+              </a>
+
+              <a href="mailto:hola@webcraftstudio.cat" class="info-block" style="text-decoration:none;color:inherit">
+                <div class="info-block-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <div class="info-block-label">Correu electrònic</div>
+                  <div class="info-block-value">hola@webcraftstudio.cat</div>
+                  <div class="info-block-desc">Responem en menys de 24 hores laborables</div>
+                </div>
+              </a>
+
+              <div class="info-block" style="cursor:default">
+                <div class="info-block-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div>
+                  <div class="info-block-label">Horari</div>
+                  <div class="info-block-value">Dl–Dv, 9:00 – 18:00 h</div>
+                  <div class="info-block-desc">Fussos horaris CET / CEST (Barcelona)</div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- FAQ -->
+            <div class="faq-section rv">
+              <div class="faq-title">Preguntes freqüents</div>
+
+              <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                  Quant tarda a estar llesta la meva web?
+                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-a">Depèn del pla: Bàsic 7 dies, Professional 15 dies i Premium entre 3 i 6 setmanes. T'informem del calendari exacte en el pressupost.</div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                  Necessito tenir contingut preparat?
+                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-a">No és imprescindible. T'ajudem a organitzar el missatge i podem treballar amb textos provisionals fins que tinguis el contingut definitiu.</div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                  Podré actualitzar la web jo mateix?
+                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-a">Sí. Tots els projectes inclouen formació perquè puguis gestionar el contingut de manera autònoma. Si prefereixes que ho gestionem nosaltres, tenim plans de manteniment mensual.</div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                  Incloeu allotjament i domini?
+                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-a">El preu dels plans no inclou allotjament ni domini (és un cost extern anual que depèn del proveïdor). T'ajudem a triar el millor servei i ho configurem tot per tu.</div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                  Com funciona el pagament?
+                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-a">Treballem amb un 50% d'entrada en acceptar el pressupost i el 50% restant en lliurar la web. Acceptem transferència bancària i targeta de crèdit.</div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right: large form -->
+          <div class="rv d1">
+            <div class="form-wrap-lg">
+              <div class="form-title">Envia'ns el teu projecte</div>
+              <div class="form-subtitle">Omple el formulari i et contactem en menys de 24 hores per parlar dels detalls del teu projecte.</div>
+
+              <div id="contactFormFull" class="form-grid">
+                <div class="form-row-2">
+                  <div class="field">
+                    <label for="cNom">Nom *</label>
+                    <input type="text" id="cNom" name="nom" placeholder="El teu nom" autocomplete="given-name" required />
+                  </div>
+                  <div class="field">
+                    <label for="cCognom">Cognom</label>
+                    <input type="text" id="cCognom" name="cognom" placeholder="El teu cognom" autocomplete="family-name" />
+                  </div>
+                </div>
+
+                <div class="form-row-2">
+                  <div class="field">
+                    <label for="cEmail">Correu electrònic *</label>
+                    <input type="email" id="cEmail" name="email" placeholder="tu@empresa.cat" autocomplete="email" required />
+                  </div>
+                  <div class="field">
+                    <label for="cTel">Telèfon</label>
+                    <input type="tel" id="cTel" name="tel" placeholder="+34 600 000 000" autocomplete="tel" />
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="cEmpresa">Empresa</label>
+                  <input type="text" id="cEmpresa" name="empresa" placeholder="Nom de l'empresa (opcional)" autocomplete="organization" />
+                </div>
+
+                <div class="form-row-2">
+                  <div class="field">
+                    <label for="cServei">Servei d'interès *</label>
+                    <select id="cServei" name="servei" required>
+                      <option value="" disabled selected>Selecciona un servei</option>
+                      <option>Pàgina d'aterratge (497€+)</option>
+                      <option>Botiga en línia (1.497€+)</option>
+                      <option>Web a mida (2.997€+)</option>
+                      <option>Manteniment web</option>
+                      <option>No ho sé encara</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="cPressupost">Pressupost aproximat</label>
+                    <select id="cPressupost" name="pressupost">
+                      <option value="" disabled selected>Rang d'inversió</option>
+                      <option>Menys de 500€</option>
+                      <option>500€ – 1.500€</option>
+                      <option>1.500€ – 3.000€</option>
+                      <option>Més de 3.000€</option>
+                      <option>Prefereixo parlar-ho</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="cTermini">Termini desitjat</label>
+                  <select id="cTermini" name="termini">
+                    <option value="" disabled selected>Quan ho necessites?</option>
+                    <option>Urgent (menys d'1 mes)</option>
+                    <option>1 – 2 mesos</option>
+                    <option>2 – 4 mesos</option>
+                    <option>Sense pressa</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="cMissatge">Descriu el teu projecte *</label>
+                  <textarea id="cMissatge" name="missatge" placeholder="Explica'ns el teu negoci, els teus objectius, el públic al qual t'adreçes i qualsevol detall que consideris important..." required></textarea>
+                </div>
+
+                <button type="button" class="btn btn-blue" onclick="sendFullForm(this)" style="justify-content:center;width:100%;padding:17px">
+                  Enviar missatge
+                  <span class="btn-arrow" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </span>
+                </button>
+
+                <p style="font-size:0.76rem;color:var(--snow-35);text-align:center;line-height:1.5">
+                  En enviar el formulari acceptes la nostra <a href="#" style="color:var(--azure-lt)">Política de Privacitat</a>.
+                </p>
+              </div>
+
+              <!-- Success state -->
+              <div class="form-success" id="formSuccess">
+                <div class="success-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="success-title">Missatge enviat!</div>
+                <p class="success-text">Gràcies per contactar amb nosaltres. Ens posarem en contacte amb tu en menys de 24 hores laborables.</p>
+                <a href="index.html" class="btn btn-rim">Tornar a l'inici</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer role="contentinfo">
+    <div class="wrap">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a href="index.html" class="nav-logo" aria-label="WebCraft Studio — inici">
+            WebCraft<em>Studio</em><span class="dot" aria-hidden="true"></span>
+          </a>
+          <p>Creem pàgines web d'alt rendiment per a empreses que volen créixer en línia.</p>
+        </div>
+        <nav class="foot-cols" aria-label="Navegació del peu de pàgina">
+          <div class="foot-col">
+            <h4>Serveis</h4>
+            <ul role="list">
+              <li><a href="index.html#serveis">Pàgines d'aterratge</a></li>
+              <li><a href="index.html#serveis">Botigues en línia</a></li>
+              <li><a href="index.html#serveis">Webs a mida</a></li>
+              <li><a href="index.html#preus">Veure preus</a></li>
+            </ul>
+          </div>
+          <div class="foot-col">
+            <h4>Empresa</h4>
+            <ul role="list">
+              <li><a href="index.html#nosaltres">Nosaltres</a></li>
+              <li><a href="index.html#portfolio">Portfolio</a></li>
+              <li><a href="index.html#proces">Procés</a></li>
+              <li><a href="contact.html">Contacte</a></li>
+            </ul>
+          </div>
+          <div class="foot-col">
+            <h4>Legal</h4>
+            <ul role="list">
+              <li><a href="#">Avís Legal</a></li>
+              <li><a href="#">Privacitat</a></li>
+              <li><a href="#">Cookies</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="foot-bottom">
+        <p>© 2025 WebCraft Studio · Tots els drets reservats</p>
+        <div class="socials">
+          <a href="#" class="soc" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="soc" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="soc" aria-label="X / Twitter">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script>
+    /* ── Contact page: full form submit ── */
+    function sendFullForm(btn) {
+      const required = document.querySelectorAll('#contactFormFull [required]');
+      let valid = true;
+
+      required.forEach(input => {
+        if (!input.value.trim()) {
+          input.style.borderColor = '#ef4444';
+          valid = false;
+        } else {
+          input.style.borderColor = '';
+        }
+      });
+
+      if (!valid) {
+        const first = document.querySelector('#contactFormFull [required]:invalid, #contactFormFull [required][style*="ef4444"]');
+        if (first) first.focus();
+        return;
+      }
+
+      btn.textContent = 'Enviant…';
+      btn.disabled    = true;
+
+      /* Replace with real fetch() to your backend */
+      setTimeout(() => {
+        document.getElementById('contactFormFull').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('show');
+      }, 1400);
+    }
+
+    /* ── FAQ accordion ── */
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      /* Close all */
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      /* Toggle clicked */
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+</body>
+</html>

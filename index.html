@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- SEO Meta -->
+  <title>WebCraft Studio — Diseño Web en Cataluña y España | Páginas Web Profesionales</title>
+  <meta name="description" content="WebCraft Studio: diseño web profesional en Cataluña y toda España. Creamos páginas web de alto rendimiento, tiendas online y webs a medida que convierten visitas en clientes. Desarrollador web freelance con +50 proyectos." />
+  <meta name="keywords" content="diseño web Cataluña, creación páginas web España, desarrollador web freelance España, diseño web Barcelona, diseño web Girona, tienda online España, web a medida Cataluña" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webcraftstudio.es/" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="WebCraft Studio — Diseño Web en Cataluña y España" />
+  <meta property="og:description" content="Creamos webs de alto rendimiento para empresas que quieren crecer online en Cataluña y toda España. Primera consulta gratuita." />
+  <meta property="og:url" content="https://webcraftstudio.es/" />
+  <meta property="og:locale" content="es_ES" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,300&display=swap" rel="stylesheet" />
+
+  <!-- Stripe.js -->
+  <script src="https://js.stripe.com/v3/" defer></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "WebCraft Studio",
+    "url": "https://webcraftstudio.es",
+    "description": "Diseño y desarrollo web profesional en Cataluña y España.",
+    "areaServed": ["Cataluña", "España"],
+    "serviceType": ["Diseño web", "Desarrollo web", "Tiendas online", "SEO"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+34-642-699-821",
+      "contactType": "customer service",
+      "availableLanguage": ["Spanish", "Catalan"]
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ══ CUSTOM CURSOR (desktop) ════════════════════════ -->
+  <div id="cursor" aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ══ LOADER ════════════════════════════════════════ -->
+  <div id="loader" role="status" aria-label="Cargando">
+    <div class="ld-word">
+      <span>Web</span><span>Craft</span><span>.</span>
+    </div>
+    <div class="ld-bar">
+      <div class="ld-fill"></div>
+    </div>
+  </div>
+
+  <!-- ══ MOBILE DRAWER ══════════════════════════════════ -->
+  <nav class="mob-drawer" id="mobDrawer" aria-label="Menú móvil">
+    <a href="#servicios"  onclick="closeDrawer()">Servicios</a>
+    <a href="#precios"    onclick="closeDrawer()">Precios</a>
+    <a href="#portfolio"  onclick="closeDrawer()">Portfolio</a>
+    <a href="#nosotros"   onclick="closeDrawer()">Nosotros</a>
+    <a href="#contacto"   onclick="closeDrawer()">Contacto</a>
+  </nav>
+
+  <!-- ══ NAVBAR ═════════════════════════════════════════ -->
+  <header id="nav" role="banner">
+    <div class="wrap nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="WebCraft Studio — inicio">
+        WebCraft<em>Studio</em><span class="dot" aria-hidden="true"></span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="#contacto" class="btn btn-blue btn-blue-sm">
+          Habla con un experto
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══ HERO ══════════════════════════════════════════ -->
+    <section id="hero" aria-label="Inicio">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-mesh-1" aria-hidden="true"></div>
+      <div class="hero-mesh-2" aria-hidden="true"></div>
+      <div class="hero-mesh-3" aria-hidden="true"></div>
+      <div class="hero-grain"  aria-hidden="true"></div>
+      <div class="hero-grid"   aria-hidden="true"></div>
+
+      <div class="wrap hero-content">
+        <div class="hero-pill">
+          <div class="hero-pill-dot" aria-hidden="true"></div>
+          Disponible para nuevos proyectos · 2026
+        </div>
+
+        <h1 class="hero-h1">
+          Creamos webs<br>
+          que <span class="line-italic">venden</span><br>
+          <span class="line-outline">para ti</span>
+        </h1>
+
+        <p class="hero-sub body-lg">
+          Diseño premium, velocidad y posicionamiento SEO.<br>
+          Tu web puede ser la clave de tu negocio — en Cataluña y toda España.
+        </p>
+
+        <div class="hero-btns">
+          <a href="#precios" class="btn btn-blue">
+            Ver planes y precios
+            <span class="btn-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+          <a href="#portfolio" class="btn btn-rim">Ver portfolio</a>
+        </div>
+      </div>
+
+      <div class="hero-floaters" aria-hidden="true">
+        <div class="floater">
+          <div class="floater-num">+80<span>%</span></div>
+          <div class="floater-label">Más conversiones</div>
+          <div class="floater-bar"><div class="floater-bar-fill" style="width:80%"></div></div>
+        </div>
+        <div class="floater">
+          <div class="floater-num">50<span>+</span></div>
+          <div class="floater-label">Proyectos realizados</div>
+          <div class="floater-bar"><div class="floater-bar-fill" style="width:100%"></div></div>
+        </div>
+        <div class="floater">
+          <div class="floater-num">99<span>%</span></div>
+          <div class="floater-label">Satisfacción del cliente</div>
+          <div class="floater-bar"><div class="floater-bar-fill" style="width:98%"></div></div>
+        </div>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+        <span class="scroll-text">Scroll</span>
+      </div>
+    </section>
+
+    <!-- ══ MARQUEE ════════════════════════════════════════ -->
+    <div class="marquee-wrap" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Diseño premium</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Carga &lt;1s</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>SEO Avanzado</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>100% Responsive</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Soporte Dedicado</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Entrega en 15 días</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Conversiones +80%</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Código Limpio</div>
+        <!-- Duplicate for seamless loop -->
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Diseño premium</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Carga &lt;1s</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>SEO Avanzado</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>100% Responsive</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Soporte Dedicado</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Entrega en 15 días</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Conversiones +80%</div>
+        <div class="marquee-item"><svg viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>Código Limpio</div>
+      </div>
+    </div>
+
+    <!-- ══ SERVICES ═══════════════════════════════════════ -->
+    <section id="servicios" class="sec" aria-labelledby="srv-heading">
+      <div class="wrap">
+        <div class="rv">
+          <div class="eyebrow">Servicios</div>
+          <h2 id="srv-heading" class="heading-lg">Todo lo que necesitas<br>para crecer en línea</h2>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="services-layout">
+
+          <article class="srv-card rv d1">
+            <div class="srv-num" aria-hidden="true">01</div>
+            <div class="srv-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <path d="M8 21h8M12 17v4"/>
+              </svg>
+            </div>
+            <h3 class="srv-name">Landing pages</h3>
+            <p class="srv-desc">Páginas diseñadas para convertir visitas en clientes. Diseño de alto impacto y CTAs estratégicos que generan resultados reales para tu negocio en España.</p>
+            <div class="srv-cta">
+              Desde 497€
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </article>
+
+          <article class="srv-card rv d2">
+            <div class="srv-num" aria-hidden="true">02</div>
+            <div class="srv-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 01-8 0"/>
+              </svg>
+            </div>
+            <h3 class="srv-name">Tiendas online</h3>
+            <p class="srv-desc">Comercio electrónico de alto rendimiento con pasarela de pago integrada, gestión de inventario y experiencia de compra optimizada para maximizar tu facturación.</p>
+            <div class="srv-cta">
+              Desde 1.497€
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </article>
+
+          <article class="srv-card rv d3">
+            <div class="srv-num" aria-hidden="true">03</div>
+            <div class="srv-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <h3 class="srv-name">Webs a medida</h3>
+            <p class="srv-desc">Desarrollo 100% personalizado. Sin plantillas, sin límites. Arquitectura escalable, código limpio y funcionalidades adaptadas exactamente a tu negocio.</p>
+            <div class="srv-cta">
+              Desde 2.997€
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PRICING ════════════════════════════════════════ -->
+    <section id="precios" class="sec" aria-labelledby="price-heading">
+      <div class="wrap">
+        <div class="pricing-header rv">
+          <div class="eyebrow">Precios</div>
+          <h2 id="price-heading" class="heading-lg">Planes claros,<br>sin sorpresas</h2>
+          <p class="body-lg">Elige el plan que más se adapta a tu negocio. Todos incluyen diseño profesional y soporte post-venta.</p>
+        </div>
+
+        <div class="pricing-grid">
+
+          <!-- Básico -->
+          <article class="price-card rv d1">
+            <h3 class="plan-name">Básico</h3>
+            <p class="plan-tagline">Para empezar con buen pie</p>
+            <div class="plan-price-row">
+              <div>
+                <div class="plan-from">Desde</div>
+                <div class="plan-amount">497€</div>
+              </div>
+              <div class="plan-per">/ proyecto</div>
+            </div>
+            <ul class="plan-feats" role="list">
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Landing page de 1 página</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Diseño responsive</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Formulario de contacto</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>SEO básico</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Entrega en 7 días</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>1 ronda de revisiones</li>
+            </ul>
+            <button class="btn btn-rim btn-full" onclick="handleCheckout('basic', 49700, this)" aria-label="Contratar plan Básico por 497€">
+              Comprar ahora
+              <span class="btn-arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </button>
+          </article>
+
+          <!-- Professional (featured) -->
+          <article class="price-card hot rv d2">
+            <div class="plan-chip">
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" aria-hidden="true"><circle cx="4" cy="4" r="4"/></svg>
+              Más popular
+            </div>
+            <h3 class="plan-name">Professional</h3>
+            <p class="plan-tagline">La elección de empresas en crecimiento</p>
+            <div class="plan-price-row">
+              <div>
+                <div class="plan-from">Desde</div>
+                <div class="plan-amount" style="color:var(--azure-lt)">1.497€</div>
+              </div>
+              <div class="plan-per">/ proyecto</div>
+            </div>
+            <ul class="plan-feats" role="list">
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Web multisección (hasta 8 páginas)</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Diseño premium a medida</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Animaciones y micro-interacciones</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>SEO avanzado + Analytics</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Integración WhatsApp / CRM</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Entrega en 15 días</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>3 rondas de revisiones</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Soporte 3 meses incluido</li>
+            </ul>
+            <button class="btn btn-blue btn-full" onclick="handleCheckout('professional', 149700, this)" aria-label="Contratar plan Professional por 1.497€">
+              Contratar servicio
+              <span class="btn-arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </button>
+          </article>
+
+          <!-- Premium -->
+          <article class="price-card rv d3">
+            <h3 class="plan-name">Prémium</h3>
+            <p class="plan-tagline">Para marcas que quieren liderar</p>
+            <div class="plan-price-row">
+              <div>
+                <div class="plan-from">Desde</div>
+                <div class="plan-amount">2.997€</div>
+              </div>
+              <div class="plan-per">/ proyecto</div>
+            </div>
+            <ul class="plan-feats" role="list">
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Desarrollo 100% a medida</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Comercio electrónico o panel admin</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Integraciones avanzadas</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Optimización de rendimiento</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Revisiones ilimitadas</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Soporte 6 meses incluido</li>
+              <li class="plan-feat"><span class="feat-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2 6 5 9 10 3"/></svg></span>Consultoría digital incluida</li>
+            </ul>
+            <button class="btn btn-rim btn-full" onclick="handleCheckout('premium', 299700, this)" aria-label="Solicitar presupuesto plan Prémium">
+              Solicitar presupuesto
+              <span class="btn-arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </button>
+          </article>
+
+        </div>
+
+        <p class="pricing-note rv">¿No sabes qué plan elegir? <a href="#contacto" class="pricing-note-link">Contáctanos</a> — te asesoramos gratis.</p>
+      </div>
+    </section>
+
+    <!-- ══ PORTFOLIO ══════════════════════════════════════ -->
+    <section id="portfolio" class="sec" aria-labelledby="port-heading">
+      <div class="wrap">
+        <div class="port-header rv">
+          <div class="eyebrow">Portfolio</div>
+          <h2 id="port-heading" class="heading-lg">Proyectos que<br>hablan por sí solos</h2>
+          <p class="body-lg">Cada proyecto es una solución única diseñada para los objetivos específicos de cada cliente en España y Cataluña.</p>
+        </div>
+
+        <div class="port-grid rv">
+
+          <article class="port-item p1">
+            <div class="port-screen">
+              <div class="port-bar" aria-hidden="true">
+                <div class="pbar-dot" style="background:#ff5f57"></div>
+                <div class="pbar-dot" style="background:#febc2e"></div>
+                <div class="pbar-dot" style="background:#28c840"></div>
+              </div>
+              <div class="port-body">
+                <div class="port-mock-text">Nexus Agency</div>
+              </div>
+            </div>
+            <div class="port-overlay" aria-hidden="true">
+              <div class="port-proj-name">Nexus Agency</div>
+              <div class="port-proj-tag">Agencia Digital</div>
+            </div>
+            <div class="port-info">
+              <div>
+                <div class="port-info-name">Nexus Agency</div>
+                <div class="port-info-cat">Landing page · Agencia Digital</div>
+              </div>
+              <div class="port-link" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </article>
+
+          <article class="port-item p2">
+            <div class="port-screen">
+              <div class="port-bar" aria-hidden="true">
+                <div class="pbar-dot" style="background:#ff5f57"></div>
+                <div class="pbar-dot" style="background:#febc2e"></div>
+                <div class="pbar-dot" style="background:#28c840"></div>
+              </div>
+              <div class="port-body">
+                <div class="port-mock-text">Éclat Mode</div>
+              </div>
+            </div>
+            <div class="port-overlay" aria-hidden="true">
+              <div class="port-proj-name">Éclat Mode</div>
+              <div class="port-proj-tag">Comercio Electrónico Moda</div>
+            </div>
+            <div class="port-info">
+              <div>
+                <div class="port-info-name">Éclat Mode</div>
+                <div class="port-info-cat">E-Commerce · Moda</div>
+              </div>
+              <div class="port-link" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </article>
+
+          <article class="port-item p3">
+            <div class="port-screen">
+              <div class="port-bar" aria-hidden="true">
+                <div class="pbar-dot" style="background:#ff5f57"></div>
+                <div class="pbar-dot" style="background:#febc2e"></div>
+                <div class="pbar-dot" style="background:#28c840"></div>
+              </div>
+              <div class="port-body">
+                <div class="port-mock-text">Flowmetric</div>
+              </div>
+            </div>
+            <div class="port-overlay" aria-hidden="true">
+              <div class="port-proj-name">Flowmetric</div>
+              <div class="port-proj-tag">SaaS · Panel de control</div>
+            </div>
+            <div class="port-info">
+              <div>
+                <div class="port-info-name">Flowmetric</div>
+                <div class="port-info-cat">SaaS · Panel de control</div>
+              </div>
+              <div class="port-link" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </article>
+
+          <article class="port-item p4">
+            <div class="port-screen">
+              <div class="port-bar" aria-hidden="true">
+                <div class="pbar-dot" style="background:#ff5f57"></div>
+                <div class="pbar-dot" style="background:#febc2e"></div>
+                <div class="pbar-dot" style="background:#28c840"></div>
+              </div>
+              <div class="port-body">
+                <div class="port-mock-text">Maison Lorette</div>
+              </div>
+            </div>
+            <div class="port-overlay" aria-hidden="true">
+              <div class="port-proj-name">Maison Lorette</div>
+              <div class="port-proj-tag">Restauración Premium</div>
+            </div>
+            <div class="port-info">
+              <div>
+                <div class="port-info-name">Maison Lorette</div>
+                <div class="port-info-cat">Restauración · Reservas online</div>
+              </div>
+              <div class="port-link" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ WHY US ══════════════════════════════════════════ -->
+    <section id="nosotros" class="sec" aria-labelledby="why-heading">
+      <div class="wrap">
+        <div class="why-layout">
+
+          <div class="rv-left">
+            <div class="why-big-metric" id="whyMetrics">
+              <div class="wm-row">
+                <div>
+                  <div class="wm-label">Aumento medio en conversiones</div>
+                  <div class="wm-bar-wrap"><div class="wm-bar-fill" data-w="80"></div></div>
+                </div>
+                <div class="wm-value">+80%</div>
+              </div>
+              <div class="wm-row">
+                <div>
+                  <div class="wm-label">Satisfacción del cliente</div>
+                  <div class="wm-bar-wrap"><div class="wm-bar-fill" data-w="98"></div></div>
+                </div>
+                <div class="wm-value">99%</div>
+              </div>
+              <div class="wm-row">
+                <div>
+                  <div class="wm-label">Proyectos entregados</div>
+                  <div class="wm-bar-wrap"><div class="wm-bar-fill" data-w="100"></div></div>
+                </div>
+                <div class="wm-value">50+</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="rv-right">
+              <div class="eyebrow">Por qué nosotros</div>
+              <h2 id="why-heading" class="heading-lg">Construimos resultados,<br>no solo webs</h2>
+            </div>
+
+            <div class="why-cards">
+
+              <div class="why-card rv d1">
+                <div class="why-card-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <div>
+                  <div class="why-card-title">Diseño moderno y único</div>
+                  <div class="why-card-text">Creamos identidades visuales memorables. Sin plantillas — tu web será única en el mercado español y catalán.</div>
+                </div>
+              </div>
+
+              <div class="why-card rv d2">
+                <div class="why-card-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <div>
+                  <div class="why-card-title">Rápido y optimizado</div>
+                  <div class="why-card-text">Código limpio, imágenes optimizadas y CDN global. Tu web carga en menos de 1 segundo.</div>
+                </div>
+              </div>
+
+              <div class="why-card rv d3">
+                <div class="why-card-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div>
+                  <div class="why-card-title">Enfocado en conversiones</div>
+                  <div class="why-card-text">Cada decisión de diseño está apoyada por datos. Diseñamos para que tus visitas compren.</div>
+                </div>
+              </div>
+
+              <div class="why-card rv d4">
+                <div class="why-card-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                </div>
+                <div>
+                  <div class="why-card-title">Soporte personalizado</div>
+                  <div class="why-card-text">Tienes un interlocutor directo que conoce tu proyecto. Soporte real, sin bots ni tickets.</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TESTIMONIALS ═══════════════════════════════════ -->
+    <section id="testimonioss" class="sec" aria-labelledby="testi-heading">
+      <div class="wrap">
+        <div class="testi-header rv">
+          <div class="eyebrow">Testimonios</div>
+          <h2 id="testi-heading" class="heading-lg">Lo que dicen<br>nuestros clientes</h2>
+        </div>
+
+        <div class="testi-grid">
+
+          <article class="testi-card rv d1">
+            <div class="testi-quote" aria-hidden="true">"</div>
+            <div class="testi-stars" aria-label="5 estrellas">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote class="testi-text">Desde que lanzamos la nueva web, nuestras consultas online se triplicaron. WebCraft Studio es la mejor inversión que hemos hecho para nuestro negocio.</blockquote>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:linear-gradient(135deg,#2563eb,#7c3aed)" aria-hidden="true">MR</div>
+              <div>
+                <div class="testi-name">Marta Rodríguez</div>
+                <div class="testi-role">CEO · Clínica Estética Lumière</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testi-card rv d2">
+            <div class="testi-quote" aria-hidden="true">"</div>
+            <div class="testi-stars" aria-label="5 estrellas">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote class="testi-text">Con WebCraft he podido tener mi página lista en 15 días y muy profesional. El proceso fue sencillo y el resultado superó mis expectativas.</blockquote>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:linear-gradient(135deg,#059669,#065f46)" aria-hidden="true">JM</div>
+              <div>
+                <div class="testi-name">Joan Mas</div>
+                <div class="testi-role">Fundador · EcoTech Solutions</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testi-card rv d3">
+            <div class="testi-quote" aria-hidden="true">"</div>
+            <div class="testi-stars" aria-label="5 estrellas">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote class="testi-text">Mi tienda online pasó de no tener visitas a tener miles en el primer mes. El SEO que implementaron fue clave para posicionarnos en toda España.</blockquote>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:linear-gradient(135deg,#dc2626,#991b1b)" aria-hidden="true">LP</div>
+              <div>
+                <div class="testi-name">Laura Pons</div>
+                <div class="testi-role">Propietaria · Atelier Pons</div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PROCESS ════════════════════════════════════════ -->
+    <section id="proceso" class="sec" aria-labelledby="proc-heading">
+      <div class="wrap">
+        <div class="proc-header rv">
+          <div class="eyebrow">Proceso</div>
+          <h2 id="proc-heading" class="heading-lg">De la idea a la web<br>en 4 pasos</h2>
+          <p class="body-lg">Un proceso claro y transparente — sabes exactamente lo que ocurre en cada momento.</p>
+        </div>
+
+        <ol class="proc-row" role="list">
+
+          <li class="proc-step rv d1">
+            <div class="proc-circle">
+              <div class="proc-num">01</div>
+              <div class="proc-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              </div>
+            </div>
+            <h3 class="proc-title">Contacto</h3>
+            <p class="proc-desc">Hablemos sobre tu proyecto, objetivos y presupuesto. Sin compromiso y sin presión.</p>
+          </li>
+
+          <li class="proc-step rv d2">
+            <div class="proc-circle">
+              <div class="proc-num">02</div>
+              <div class="proc-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4z"/></svg>
+              </div>
+            </div>
+            <h3 class="proc-title">Diseño</h3>
+            <p class="proc-desc">Creamos el diseño en Figma. Lo ves y apruebas antes de escribir ni una línea de código.</p>
+          </li>
+
+          <li class="proc-step rv d3">
+            <div class="proc-circle">
+              <div class="proc-num">03</div>
+              <div class="proc-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+            </div>
+            <h3 class="proc-title">Desarrollo</h3>
+            <p class="proc-desc">Desarrollamos con las últimas tecnologías. Acceso a previsualización en tiempo real.</p>
+          </li>
+
+          <li class="proc-step rv d4">
+            <div class="proc-circle">
+              <div class="proc-num">04</div>
+              <div class="proc-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+            </div>
+            <h3 class="proc-title">Entrega</h3>
+            <p class="proc-desc">Web en producción, dominio configurado, SEO activo y formación para que gestiones tu contenido.</p>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!-- ══ CONTACT ════════════════════════════════════════ -->
+    <section id="contacto" class="sec" aria-labelledby="contact-heading">
+      <div class="wrap">
+        <div class="contact-layout">
+
+          <div>
+            <div class="rv">
+              <div class="eyebrow">Contacto</div>
+              <h2 id="contact-heading" class="heading-lg">Explícanos<br>tu proyecto</h2>
+              <p class="body-lg">Respondemos en menos de 24h. Primera consulta gratuita sin compromiso.</p>
+            </div>
+
+            <div class="contact-channels rv">
+              <a href="https://wa.me/34642699821" class="channel" target="_blank" rel="noopener noreferrer">
+                <div class="ch-icon" style="background:rgba(37,211,102,.1)">
+                  <svg viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </div>
+                <div>
+                  <div class="ch-label">WhatsApp</div>
+                  <div class="ch-value">+34 642 699 821</div>
+                </div>
+              </a>
+
+              <a href="mailto:hola@webcraftstudio.es" class="channel">
+                <div class="ch-icon" style="background:var(--azure-ghost)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--azure-lt)" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <div class="ch-label">Correo electrónico</div>
+                  <div class="ch-value">hola@webcraftstudio.es</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Formspree Form -->
+          <div class="rv d1">
+            <div class="form-wrap">
+              <div class="form-title">Envíanos un mensaje</div>
+
+              <!-- SUCCESS / ERROR banners -->
+              <div id="form-success" class="form-banner form-banner--ok" role="alert" hidden>
+                ✓ Mensaje enviado — Te contactamos en menos de 24h.
+              </div>
+              <div id="form-error" class="form-banner form-banner--err" role="alert" hidden>
+                ✗ Ha ocurrido un error. Por favor inténtalo de nuevo.
+              </div>
+
+              <form
+                id="cForm"
+                action="https://formspree.io/f/YOUR_FORM_ID"
+                method="POST"
+                novalidate
+                autocomplete="on"
+              >
+                <!-- Honeypot anti-spam -->
+                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+                <!-- Redirect after submit (for non-JS fallback) -->
+                <input type="hidden" name="_next" value="https://webcraftstudio.es/?enviado=1" />
+                <input type="hidden" name="_subject" value="Nuevo mensaje desde webcraftstudio.es" />
+
+                <div class="form-grid">
+                  <div class="form-row-2">
+                    <div class="field">
+                      <label for="nombre">Nombre <span aria-hidden="true">*</span></label>
+                      <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Tu nombre"
+                        autocomplete="given-name"
+                        required
+                        minlength="2"
+                        maxlength="80"
+                      />
+                      <span class="field-error" id="err-nombre" role="alert"></span>
+                    </div>
+                    <div class="field">
+                      <label for="email">Correo electrónico <span aria-hidden="true">*</span></label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="tu@email.com"
+                        autocomplete="email"
+                        required
+                        maxlength="120"
+                      />
+                      <span class="field-error" id="err-email" role="alert"></span>
+                    </div>
+                  </div>
+                  <div class="form-row-2">
+                    <div class="field">
+                      <label for="servicio">Servicio</label>
+                      <select id="servicio" name="servicio">
+                        <option value="" disabled selected>Selecciona</option>
+                        <option value="landing">Landing Page (desde 497€)</option>
+                        <option value="tienda">Tienda online (desde 1.497€)</option>
+                        <option value="medida">Web a medida (desde 2.997€)</option>
+                        <option value="otro">No lo sé aún</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="presupuesto">Presupuesto</label>
+                      <select id="presupuesto" name="presupuesto">
+                        <option value="" disabled selected>Rango</option>
+                        <option value="menos500">Menos de 500€</option>
+                        <option value="500-1500">500€ – 1.500€</option>
+                        <option value="1500-3000">1.500€ – 3.000€</option>
+                        <option value="mas3000">Más de 3.000€</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label for="mensaje">Tu proyecto <span aria-hidden="true">*</span></label>
+                    <textarea
+                      id="mensaje"
+                      name="mensaje"
+                      placeholder="Explícanos brevemente lo que necesitas y cuáles son tus objetivos..."
+                      required
+                      minlength="10"
+                      maxlength="2000"
+                    ></textarea>
+                    <span class="field-error" id="err-mensaje" role="alert"></span>
+                  </div>
+
+                  <div class="field field-check">
+                    <label class="check-label">
+                      <input type="checkbox" id="privacidad" name="privacidad" required />
+                      <span>Acepto la <a href="#" class="check-link">política de privacidad</a> y el tratamiento de mis datos. <span aria-hidden="true">*</span></span>
+                    </label>
+                    <span class="field-error" id="err-privacidad" role="alert"></span>
+                  </div>
+
+                  <button type="submit" class="btn btn-blue btn-full" id="submitBtn">
+                    Enviar mensaje
+                    <span class="btn-arrow" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FINAL CTA ══════════════════════════════════════ -->
+    <section id="cta-final" aria-label="Llamada a la acción final">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="wrap cta-inner rv">
+        <div class="eyebrow" style="justify-content:center">¿Preparado para crecer?</div>
+        <h2 class="cta-h2">
+          Empieza tu web<br>
+          que <em>convierte</em>
+        </h2>
+        <p class="cta-sub">Únete a más de 50 empresas en Cataluña y España que confían en WebCraft Studio.<br>Primera consulta gratuita — sin compromiso.</p>
+        <div class="cta-btns">
+          <a href="#contacto" class="btn btn-blue" style="padding:17px 36px;font-size:1rem">
+            Empieza tu proyecto
+            <span class="btn-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+          <a href="#precios" class="btn btn-rim" style="padding:17px 36px;font-size:1rem">Ver planes</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ════════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="wrap">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a href="#hero" class="nav-logo" aria-label="WebCraft Studio — inicio">
+            WebCraft<em>Studio</em><span class="dot" aria-hidden="true"></span>
+          </a>
+          <p>Creamos páginas web de alto rendimiento para empresas que quieren crecer online en Cataluña y toda España.</p>
+        </div>
+
+        <nav class="foot-cols" aria-label="Navegación del pie de página">
+          <div class="foot-col">
+            <h4>Servicios</h4>
+            <ul role="list">
+              <li><a href="#servicios">Landing pages</a></li>
+              <li><a href="#servicios">Tiendas online</a></li>
+              <li><a href="#servicios">Webs a medida</a></li>
+              <li><a href="#precios">Ver precios</a></li>
+            </ul>
+          </div>
+          <div class="foot-col">
+            <h4>Empresa</h4>
+            <ul role="list">
+              <li><a href="#nosotros">Nosotros</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#proceso">Proceso</a></li>
+              <li><a href="#contacto">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="foot-col">
+            <h4>Legal</h4>
+            <ul role="list">
+              <li><a href="#">Aviso Legal</a></li>
+              <li><a href="#">Privacidad</a></li>
+              <li><a href="#">Cookies</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div class="foot-bottom">
+        <p>© 2026 WebCraft Studio · Diseño web en Cataluña y España · Todos los derechos reservados</p>
+        <div class="socials">
+          <a href="#" class="soc" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="soc" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="soc" aria-label="X / Twitter">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4l16 16M4 20L20 4"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCiErsx5sSBrInltdakUcLZO5LahjoXhrw",
+    authDomain: "webcraftstudioes.firebaseapp.com",
+    projectId: "webcraftstudioes",
+    storageBucket: "webcraftstudioes.firebasestorage.app",
+    messagingSenderId: "1086488740937",
+    appId: "1:1086488740937:web:d38c385cc0b494a89aeb98",
+    measurementId: "G-D7ZCQX3YXY"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
+</body>
+</html>

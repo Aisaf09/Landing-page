@@ -1,0 +1,90 @@
+[debug] [2026-04-04T14:23:08.566Z] ----------------------------------------------------------------------
+[debug] [2026-04-04T14:23:08.575Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\cuatr\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2026-04-04T14:23:08.576Z] CLI Version:   15.13.0
+[debug] [2026-04-04T14:23:08.576Z] Platform:      win32
+[debug] [2026-04-04T14:23:08.576Z] Node Version:  v24.13.0
+[debug] [2026-04-04T14:23:08.576Z] Time:          Sat Apr 04 2026 16:23:08 GMT+0200 (hora de verano de Europa central)
+[debug] [2026-04-04T14:23:08.576Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\cuatr\Desktop\LANDING PAGE
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] 
+[debug] [2026-04-04T14:24:56.240Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-04T14:24:56.241Z] > authorizing via signed-in user (eaisafelmachachi@gmail.com)
+[debug] [2026-04-04T14:24:56.242Z] Checked if tokens are valid: false, expires at: 1771406243679
+[debug] [2026-04-04T14:24:56.242Z] Checked if tokens are valid: false, expires at: 1771406243679
+[debug] [2026-04-04T14:24:56.242Z] > refreshing access token with scopes: []
+[debug] [2026-04-04T14:24:56.245Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-04-04T14:24:56.245Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-04-04T14:24:56.474Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-04-04T14:24:56.474Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-04-04T14:24:56.486Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mcvo-web [none]
+[debug] [2026-04-04T14:24:56.809Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mcvo-web 200
+[debug] [2026-04-04T14:24:56.809Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mcvo-web {"projectId":"mcvo-web","projectNumber":"522407382441","displayName":"mcvo","name":"projects/mcvo-web","resources":{"hostingSite":"mcvo-web"},"state":"ACTIVE","etag":"1_9370ff0d-a545-491e-9688-513459ee914a"}
+[info] i  Using project mcvo-web (mcvo) . 
+[info] 
+=== Hosting Setup
+[debug] [2026-04-04T14:24:56.822Z] Checked if tokens are valid: true, expires at: 1775316295474
+[debug] [2026-04-04T14:24:56.822Z] Checked if tokens are valid: true, expires at: 1775316295474
+[debug] [2026-04-04T14:24:56.822Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mcvo-web [none]
+[debug] [2026-04-04T14:24:57.067Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mcvo-web 200
+[debug] [2026-04-04T14:24:57.067Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mcvo-web {"projectId":"mcvo-web","projectNumber":"522407382441","displayName":"mcvo","name":"projects/mcvo-web","resources":{"hostingSite":"mcvo-web"},"state":"ACTIVE","etag":"1_9370ff0d-a545-491e-9688-513459ee914a"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[info] 
+[info] i  Didn't detect a .git folder. Assuming C:\Users\cuatr\Desktop\LANDING PAGE is the project root. 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=275061586&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2026-04-04T14:31:59.647Z] >>> [apiv2][query] POST https://github.com/login/oauth/access_token [none]
+[debug] [2026-04-04T14:31:59.647Z] >>> [apiv2][body] POST https://github.com/login/oauth/access_token [stream]
+[debug] [2026-04-04T14:31:59.964Z] <<< [apiv2][status] POST https://github.com/login/oauth/access_token 200
+[debug] [2026-04-04T14:31:59.964Z] <<< [apiv2][body] POST https://github.com/login/oauth/access_token {"access_token":"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","token_type":"bearer","scope":"read:user,repo"}
+[debug] [2026-04-04T14:31:59.966Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2026-04-04T14:32:00.279Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2026-04-04T14:32:00.279Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"Aisaf09","id":166387593,"node_id":"U_kgDOCerfiQ","avatar_url":"https://avatars.githubusercontent.com/u/166387593?v=4","gravatar_id":"","url":"https://api.github.com/users/Aisaf09","html_url":"https://github.com/Aisaf09","followers_url":"https://api.github.com/users/Aisaf09/followers","following_url":"https://api.github.com/users/Aisaf09/following{/other_user}","gists_url":"https://api.github.com/users/Aisaf09/gists{/gist_id}","starred_url":"https://api.github.com/users/Aisaf09/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Aisaf09/subscriptions","organizations_url":"https://api.github.com/users/Aisaf09/orgs","repos_url":"https://api.github.com/users/Aisaf09/repos","events_url":"https://api.github.com/users/Aisaf09/events{/privacy}","received_events_url":"https://api.github.com/users/Aisaf09/received_events","type":"User","user_view_type":"private","site_admin":false,"name":"Aisaf El Machachi","company":null,"blog":"https://mcvo-web.web.app","location":"Vilobí d'Onyar","email":null,"hireable":null,"bio":"Hola soc l'Aisaf i ara estic estudiant un Cicle de Grau Mitja que es diu SMX si vols saber més sobre mi entra al meu perfil de linkedin💪.","twitter_username":null,"notification_email":null,"public_repos":9,"public_gists":0,"followers":0,"following":0,"created_at":"2024-04-08T10:20:31Z","updated_at":"2026-03-22T12:55:54Z","private_gists":0,"total_private_repos":0,"owned_private_repos":0,"disk_usage":9345,"collaborators":0,"two_factor_authentication":false,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] +  Success! Logged into GitHub as Aisaf09 
+[info] 
+[debug] [2026-04-04T14:37:12.069Z] >>> [apiv2][query] GET https://api.github.com/repos/Aisaf09/Landing-page/actions/secrets/public-key type=owner
+[debug] [2026-04-04T14:37:12.309Z] <<< [apiv2][status] GET https://api.github.com/repos/Aisaf09/Landing-page/actions/secrets/public-key 401
+[debug] [2026-04-04T14:37:12.309Z] <<< [apiv2][body] GET https://api.github.com/repos/Aisaf09/Landing-page/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest","status":"401"}
+[debug] [2026-04-04T14:39:04.376Z] >>> [apiv2][query] GET https://api.github.com/repos/Landing-page/actions/secrets/public-key type=owner
+[debug] [2026-04-04T14:39:04.597Z] <<< [apiv2][status] GET https://api.github.com/repos/Landing-page/actions/secrets/public-key 404
+[debug] [2026-04-04T14:39:04.597Z] <<< [apiv2][body] GET https://api.github.com/repos/Landing-page/actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest","status":"404"}
+[info] 
+[info] 
+[error] !  The provided authorization cannot be used with this repository. If this repository is in an organization, did you remember to grant access? 
+[info] 
+[info] i  Action required: Visit this URL to ensure access has been granted to the appropriate organization(s) for the Firebase CLI GitHub OAuth App: 
+[info] https://github.com/settings/connections/applications/89cf50f02ac6aaed3484
+[info] 
+[debug] [2026-04-04T14:39:35.316Z] >>> [apiv2][query] GET https://api.github.com/repos/Aisaf09/Landing-page/actions/secrets/public-key type=owner
+[debug] [2026-04-04T14:39:35.530Z] <<< [apiv2][status] GET https://api.github.com/repos/Aisaf09/Landing-page/actions/secrets/public-key 401
+[debug] [2026-04-04T14:39:35.530Z] <<< [apiv2][body] GET https://api.github.com/repos/Aisaf09/Landing-page/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest","status":"401"}
+[debug] [2026-04-04T14:39:43.766Z] >>> [apiv2][query] GET https://api.github.com/repos/Aisaf09/ Landing-page/actions/secrets/public-key type=owner
+[debug] [2026-04-04T14:39:43.982Z] <<< [apiv2][status] GET https://api.github.com/repos/Aisaf09/ Landing-page/actions/secrets/public-key 401
+[debug] [2026-04-04T14:39:43.983Z] <<< [apiv2][body] GET https://api.github.com/repos/Aisaf09/ Landing-page/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest","status":"401"}
+[debug] [2026-04-04T14:46:07.964Z] >>> [apiv2][query] GET https://api.github.com/repos/Aisaf09/Landing-page/actions/secrets/public-key type=owner
+[debug] [2026-04-04T14:46:08.186Z] <<< [apiv2][status] GET https://api.github.com/repos/Aisaf09/Landing-page/actions/secrets/public-key 401
+[debug] [2026-04-04T14:46:08.186Z] <<< [apiv2][body] GET https://api.github.com/repos/Aisaf09/Landing-page/actions/secrets/public-key {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest","status":"401"}
