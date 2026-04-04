@@ -2,6 +2,14 @@
    WEBCRAFT STUDIO — script.js
 ═══════════════════════════════════════════════════════ */
 
+'use strict';
+
+/* ── Security: sanitize string for safe DOM insertion ── */
+function sanitize(str) {
+  const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#x27;' };
+  return String(str).replace(/[&<>"']/g, c => map[c]);
+}
+
 /* ── Custom cursor (desktop only) ────────────────────── */
 (function initCursor() {
   const cur  = document.getElementById('cursor');
@@ -61,14 +69,22 @@ window.addEventListener('load', () => {
   toggle.addEventListener('click', () => {
     const isOpen = drawer.classList.toggle('open');
     toggle.classList.toggle('x', isOpen);
+    toggle.setAttribute('aria-expanded', String(isOpen));
     document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  /* Close drawer on Escape key */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) {
+      closeDrawer();
+    }
   });
 })();
 
 function closeDrawer() {
   const toggle = document.getElementById('navToggle');
   const drawer = document.getElementById('mobDrawer');
-  if (toggle) toggle.classList.remove('x');
+  if (toggle) { toggle.classList.remove('x'); toggle.setAttribute('aria-expanded', 'false'); }
   if (drawer) drawer.classList.remove('open');
   document.body.style.overflow = '';
 }
@@ -77,8 +93,6 @@ function closeDrawer() {
 (function initParticles() {
   const canvas = document.getElementById('hero-canvas');
   if (!canvas) return;
-
-  /* Skip heavy particle animation on low-power devices */
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const ctx = canvas.getContext('2d');
@@ -219,30 +233,224 @@ function closeDrawer() {
   }, { passive: true });
 })();
 
-/* ── Contact form validation ─────────────────────────── */
-function sendForm(btn) {
-  const inputs = document.querySelectorAll('#cForm input, #cForm select, #cForm textarea');
-  let valid = true;
+/* ── Form validation helpers ─────────────────────────── */
+function validateEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
 
-  inputs.forEach(input => {
-    if (!input.value.trim()) {
-      input.style.borderColor = '#ef4444';
-      valid = false;
-    } else {
-      input.style.borderColor = '';
-    }
+function setFieldError(inputEl, errEl, msg) {
+  if (msg) {
+    inputEl.setAttribute('aria-invalid', 'true');
+    errEl.textContent = msg;
+  } else {
+    inputEl.removeAttribute('aria-invalid');
+    errEl.textContent = '';
+  }
+}
+
+function showBanner(id, show) {
+  const el = document.getElementById(id);
+  if (el) el.hidden = !show;
+}
+
+/* ── Formspree contact form ──────────────────────────── */
+(function initContactForm() {
+  const form = document.getElementById('cForm');
+  if (!form) return;
+
+  const nombre     = document.getElementById('nombre');
+  const email      = document.getElementById('email');
+  const mensaje    = document.getElementById('mensaje');
+  const privacidad = document.getElementById('privacidad');
+  const submitBtn  = document.getElementById('submitBtn');
+
+  /* Live validation on blur */
+  nombre && nombre.addEventListener('blur', () => {
+    const v = nombre.value.trim();
+    setFieldError(nombre, document.getElementById('err-nombre'),
+      !v ? 'Por favor, introduce tu nombre.' :
+      v.length < 2 ? 'El nombre debe tener al menos 2 caracteres.' : '');
   });
 
-  if (!valid) return;
+  email && email.addEventListener('blur', () => {
+    const v = email.value.trim();
+    setFieldError(email, document.getElementById('err-email'),
+      !v ? 'Por favor, introduce tu correo electrónico.' :
+      !validateEmail(v) ? 'Introduce un correo electrónico válido.' : '');
+  });
 
-  btn.textContent = 'Enviant…';
-  btn.disabled    = true;
+  mensaje && mensaje.addEventListener('blur', () => {
+    const v = mensaje.value.trim();
+    setFieldError(mensaje, document.getElementById('err-mensaje'),
+      !v ? 'Por favor, describe tu proyecto.' :
+      v.length < 10 ? 'El mensaje debe tener al menos 10 caracteres.' : '');
+  });
 
-  /* Simulate async submit — replace with real fetch() call */
-  setTimeout(() => {
-    btn.innerHTML  = '✓ Missatge enviat — Ens posem en contacte aviat';
-    btn.style.background  = '#059669';
-    btn.style.boxShadow   = '0 0 30px rgba(5,150,105,0.4)';
-    inputs.forEach(i => { i.value = ''; i.style.borderColor = ''; });
-  }, 1400);
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    /* Hide banners */
+    showBanner('form-success', false);
+    showBanner('form-error', false);
+
+    /* Validate */
+    let valid = true;
+
+    const nomVal = nombre ? nombre.value.trim() : '';
+    if (!nomVal || nomVal.length < 2) {
+      setFieldError(nombre, document.getElementById('err-nombre'),
+        !nomVal ? 'Por favor, introduce tu nombre.' : 'El nombre debe tener al menos 2 caracteres.');
+      valid = false;
+    } else {
+      setFieldError(nombre, document.getElementById('err-nombre'), '');
+    }
+
+    const emailVal = email ? email.value.trim() : '';
+    if (!emailVal || !validateEmail(emailVal)) {
+      setFieldError(email, document.getElementById('err-email'),
+        !emailVal ? 'Por favor, introduce tu correo electrónico.' : 'Introduce un correo electrónico válido.');
+      valid = false;
+    } else {
+      setFieldError(email, document.getElementById('err-email'), '');
+    }
+
+    const msgVal = mensaje ? mensaje.value.trim() : '';
+    if (!msgVal || msgVal.length < 10) {
+      setFieldError(mensaje, document.getElementById('err-mensaje'),
+        !msgVal ? 'Por favor, describe tu proyecto.' : 'El mensaje debe tener al menos 10 caracteres.');
+      valid = false;
+    } else {
+      setFieldError(mensaje, document.getElementById('err-mensaje'), '');
+    }
+
+    if (privacidad && !privacidad.checked) {
+      setFieldError(privacidad, document.getElementById('err-privacidad'),
+        'Debes aceptar la política de privacidad.');
+      valid = false;
+    } else if (privacidad) {
+      setFieldError(privacidad, document.getElementById('err-privacidad'), '');
+    }
+
+    if (!valid) return;
+
+    /* Submit to Formspree */
+    submitBtn.disabled   = true;
+    submitBtn.textContent = 'Enviando…';
+
+    try {
+      const data = new FormData(form);
+      const res  = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.reset();
+        showBanner('form-success', true);
+        submitBtn.textContent = '✓ Enviado';
+        setTimeout(() => {
+          submitBtn.disabled    = false;
+          submitBtn.textContent = 'Enviar mensaje';
+          submitBtn.innerHTML   = 'Enviar mensaje <span class="btn-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>';
+        }, 5000);
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      showBanner('form-error', true);
+      submitBtn.disabled    = false;
+      submitBtn.innerHTML   = 'Enviar mensaje <span class="btn-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>';
+    }
+  });
+})();
+
+/* ── Stripe Checkout integration ─────────────────────── */
+/*
+  SETUP INSTRUCTIONS:
+  1. Replace 'pk_test_YOUR_STRIPE_KEY' with your actual Stripe publishable key.
+  2. Create Price IDs in your Stripe Dashboard for each plan.
+  3. Replace the price IDs in the PLANS object below.
+  4. On your server, create a /create-checkout-session endpoint (or use
+     Stripe Payment Links for a no-server approach).
+*/
+
+const STRIPE_KEY = 'pk_test_YOUR_STRIPE_KEY'; // ← Replace with your key
+
+const PLANS = {
+  basic: {
+    name: 'Plan Básico',
+    priceId: 'price_BASIC_PRICE_ID',   // ← Replace
+    amount: 497,
+  },
+  professional: {
+    name: 'Plan Professional',
+    priceId: 'price_PRO_PRICE_ID',     // ← Replace
+    amount: 1497,
+  },
+  premium: {
+    name: 'Plan Prémium',
+    priceId: 'price_PREMIUM_PRICE_ID', // ← Replace
+    amount: 2997,
+  },
+};
+
+async function handleCheckout(planKey, _amountCents, btn) {
+  const plan = PLANS[planKey];
+  if (!plan) return;
+
+  /* If Stripe key not configured, scroll to contact form */
+  if (STRIPE_KEY === 'pk_test_YOUR_STRIPE_KEY' || !plan.priceId.startsWith('price_') || plan.priceId.includes('PRICE_ID')) {
+    showCheckoutFallback(plan.name, btn);
+    return;
+  }
+
+  btn.disabled = true;
+  const originalHTML = btn.innerHTML;
+  btn.textContent = 'Redirigiendo…';
+
+  try {
+    const stripe = window.Stripe ? Stripe(STRIPE_KEY) : null;
+    if (!stripe) throw new Error('Stripe not loaded');
+
+    const res = await fetch('/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ priceId: plan.priceId }),
+    });
+
+    if (!res.ok) throw new Error('Server error');
+
+    const { sessionId } = await res.json();
+    const { error } = await stripe.redirectToCheckout({ sessionId });
+
+    if (error) throw error;
+
+  } catch (err) {
+    console.warn('Stripe not configured — falling back to contact form.', err.message);
+    showCheckoutFallback(plan.name, btn);
+    btn.innerHTML = originalHTML;
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function showCheckoutFallback(planName, btn) {
+  /* Scroll to contact form and pre-select the service */
+  const contactSection = document.getElementById('contacto');
+  const servicioSelect = document.getElementById('servicio');
+
+  if (servicioSelect) {
+    const planMap = {
+      'Plan Básico':        'landing',
+      'Plan Professional':  'tienda',
+      'Plan Prémium':       'medida',
+    };
+    const val = planMap[planName];
+    if (val) servicioSelect.value = val;
+  }
+
+  if (contactSection) {
+    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
